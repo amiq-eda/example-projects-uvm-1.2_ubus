@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Composite xmlns="http://www.swtxml.com/swt"
+	xmlns:sv="http://www.dvteclipse.com/xmlns/customdialog/sv" xmlns:dvt="http://www.dvteclipse.com/xmlns/customdialog"
+	id="DVT Run With Dialog Demo" layout="layout:grid;">
+
+	<Composite layout="layout:grid;numColumns:2;"
+		layoutData="
+				horizontalAlignment:FILL;
+				verticalAlignment:FILL;
+				grabExcessHorizontalSpace:true;
+				grabExcessVerticalSpace:true;
+				widthHint:600;
+				heightHint:350;
+				"
+	>
+
+		<Group text="Simulator: " layout="layout:fill;type:VERTICAL;"
+			layoutData="
+						horizontalSpan:2;
+						horizontalAlignment:FILL;
+						verticalAlignment:FILL;
+						grabExcessHorizontalSpace:true;
+						"
+		>
+
+			<Button style="RADIO" id=" -f Makefile.ius " text="IUS (32-bits)" />
+			<Button style="RADIO" id=" -f Makefile.ius BITS=64 " text="IUS (64-bits)" selection="true" />
+			<Button style="RADIO" id=" -f Makefile.questa " text="Questa (32-bits)" />
+			<Button style="RADIO" id=" -f Makefile.questa BITS=64 " text="Questa (64-bits)" />
+			<Button style="RADIO" id=" -f Makefile.vcs " text="VCS (32-bits)" />
+			<Button style="RADIO" id=" -f Makefile.vcs BITS=64 " text="VCS (64-bits)" />
+		</Group>
+
+		<sv:ClassSelector id=" UVM_TESTNAME=" question="Test Name: "
+			baseClassName="uvm_test"
+			layoutData="
+						horizontalAlignment:FILL;
+						verticalAlignment:FILL;
+						grabExcessHorizontalSpace:true;
+						grabExcessVerticalSpace:true;
+						"
+		/>
+
+		<Group text="Verbosity: " layout="layout:fill;type:VERTICAL;"
+			layoutData="
+						horizontalAlignment:FILL;
+						verticalAlignment:TOP;
+						grabExcessVerticalSpace:true;
+						"
+			>
+
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_NONE " text="UVM_NONE" />
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_LOW " text="UVM_LOW" />
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_MEDIUM " text="UVM_MEDIUM" selection="true" />
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_HIGH " text="UVM_HIGH" />
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_FULL " text="UVM_FULL" />
+			<Button style="RADIO" id=" UVM_VERBOSITY=UVM_DEBUG " text="UVM_DEBUG" />
+		</Group>
+
+	</Composite>
+</Composite>

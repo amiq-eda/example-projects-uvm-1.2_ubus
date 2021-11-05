@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Composite xmlns="http://www.swtxml.com/swt"
+	xmlns:sv="http://www.dvteclipse.com/xmlns/customdialog/sv" xmlns:dvt="http://www.dvteclipse.com/xmlns/customdialog"
+	id="DVT Generate Components Diagram" layout="layout:grid;">
+
+	<Composite layout="layout:grid;numColumns:2;"
+		layoutData="
+				horizontalAlignment:FILL;
+				verticalAlignment:FILL;
+				grabExcessHorizontalSpace:true;
+				grabExcessVerticalSpace:true;
+				widthHint:600;
+				heightHint:350;
+				"
+	>
+
+		<Group text="Simulator: " layout="layout:grid;"
+			layoutData="
+					horizontalAlignment:FILL;
+					verticalAlignment:FILL;
+					grabExcessHorizontalSpace:false;
+					grabExcessVerticalSpace:false;
+					"
+		>
+
+			<Button style="RADIO" text="IUS (32-bits)" 
+				id="export dialog_makefile=Makefile.ius; export dialog_bits=32; " />
+
+			<Button style="RADIO" text="IUS (64-bits)" selection="true"
+				id="export dialog_makefile=Makefile.ius; export dialog_bits=64; " />
+
+			<Button style="RADIO" text="Questa (32-bits)"
+				id="export dialog_makefile=Makefile.questa; export dialog_bits=32; " />
+
+			<Button style="RADIO" text="Questa (64-bits)"
+				id="export dialog_makefile=Makefile.questa; export dialog_bits=64; " />
+
+			<Button style="RADIO" text="VCS (32-bits)" 
+				id="export dialog_makefile=Makefile.vcs; export dialog_bits=32; " />
+
+			<Button style="RADIO" text="VCS (64-bits)"
+				id="export dialog_makefile=Makefile.vcs; export dialog_bits=64; " />
+
+		</Group>
+
+		<sv:ClassSelector id="export dialog_test=" question="Test Name: "
+			baseClassName="uvm_test"
+			layoutData="
+						horizontalAlignment:FILL;
+						verticalAlignment:FILL;
+						grabExcessHorizontalSpace:true;
+						grabExcessVerticalSpace:true;
+						"
+		/>
+
+	</Composite>
+</Composite>

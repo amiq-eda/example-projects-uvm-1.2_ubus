@@ -1,0 +1,26 @@
+ // Also see wavedrom embedded in comment of ubus_pkg::ubus_master_driver.drive_transfer()
+
+{
+    "signal": [
+        {"name": "sig_clock",        "wave": "p............", "period":2                           },
+        {"name": "sig_request[0]",   "wave": "0.1.0....................."                          },
+        {"name": "sig_grant[0]",     "wave": "0..1.0...................."                          },
+        {"name": "sig_request[1]",   "wave": "0.1............0.........."                          },
+        {"name": "sig_grant[1]",     "wave": "0.............1.0........."                          },
+        {"name": "sig_addr",         "wave": "z...3..z.......3..z.......", "data": ["972F", "A214"]},
+        {"name": "sig_size",         "wave": "z...4..z.......4..z.......", "data": ["0", "0"]      },
+        {"name": "sig_read",         "wave": "z...1..z.......1..z......."                          },
+        {"name": "sig_write",        "wave": "z...0..z.......0..z......."                          },
+        {"name": "sig_bip",          "wave": "z......0.....z....0.....z."                          },
+        {"name": "sig_data_out",     "wave": "z......5.....z....5.....z.", "data": ["75", "15"]    },
+        {"name": "sig_wait",         "wave": "z......1...0.z....1...0.z."                          },
+    ],
+    "config": {
+        "hscale": 1
+    },
+    head: {
+        text:'UBus Master Driver Timing Diagram',
+        tick:0,
+    }
+}
+

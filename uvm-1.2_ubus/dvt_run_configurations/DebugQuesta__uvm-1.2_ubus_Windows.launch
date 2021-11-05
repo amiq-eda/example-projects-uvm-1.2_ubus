@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="ro.amiq.dvt.launch.DVTGenericLaunchConfigurationType">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="uvm-1.2_ubus"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="C_COMPILER" value="C:\questasim64_10.4\gcc-4.5.0-mingw64\bin\g++.exe"/>
+<mapEntry key="QUESTA_HOME" value="C:\questasim64_10.4"/>
+</mapAttribute>
+<stringAttribute key="process_factory_id" value="ro.amiq.dvt.launch.DVTProcessFactory"/>
+<stringAttribute key="ro.amiq.dvt.launch.CONSOLE_TITLE_PATTERN" value=""/>
+<stringAttribute key="ro.amiq.dvt.launch.FILTERS_KIND" value="Questa,UVM,"/>
+<stringAttribute key="ro.amiq.dvt.launch.GENERIC_COMMAND_ATTR" value="${env_var:DVT_HOME}\bin\utils\busybox.exe sh examples/Makefile.questa.windows.sh"/>
+<stringAttribute key="ro.amiq.dvt.launch.LAUNCH_MODE" value="DEBUG"/>
+<stringAttribute key="ro.amiq.dvt.launch.LAUNCH_PATTERNS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;patterns/&gt;"/>
+<stringAttribute key="ro.amiq.dvt.launch.PROJECT_ATTR" value="uvm-1.2_ubus"/>
+<stringAttribute key="ro.amiq.dvt.launch.RUN_AS" value="command"/>
+<stringAttribute key="ro.amiq.dvt.launch.WORKING_DIRECTORY" value="${workspace_loc:/uvm-1.2_ubus}"/>
+<booleanAttribute key="ro.amiq.dvt.launch.WORKING_SET_LINK_FILTER" value="false"/>
+</launchConfiguration>

@@ -1,0 +1,13 @@
++dvt_wavedrom_file_ext_add+wdjs
+
+//
+// UVM Library
+//
+-uvm
+
+//
+// Project Compilation
+//
+examples/ubus_tb_top.sv
++incdir+sv
++incdir+examples

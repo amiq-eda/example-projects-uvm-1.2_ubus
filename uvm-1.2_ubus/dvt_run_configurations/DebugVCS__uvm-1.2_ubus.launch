@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="ro.amiq.dvt.launch.DVTGenericLaunchConfigurationType">
+<intAttribute key="breakpoint use" value="1"/>
+<stringAttribute key="debug target use" value="ro.amiq.vlogdt.VlogNature"/>
+<stringAttribute key="debug timeout" value="10000"/>
+<stringAttribute key="debug timeout delta" value="30"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="uvm-1.2_ubus"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="process_factory_id" value="ro.amiq.dvt.launch.DVTProcessFactory"/>
+<stringAttribute key="ro.amiq.dvt.launch.CONSOLE_TITLE_PATTERN" value=""/>
+<stringAttribute key="ro.amiq.dvt.launch.FILTERS_KIND" value="VCS,UVM,"/>
+<stringAttribute key="ro.amiq.dvt.launch.GENERIC_COMMAND_ATTR" value="sh -c &quot;make -f Makefile.vcs DVT_DEBUG=1 BITS=$(uname -a | grep -q x86_64 &amp;&amp; echo 64 || echo 32) all&quot;"/>
+<stringAttribute key="ro.amiq.dvt.launch.LAUNCH_MODE" value="DEBUG"/>
+<stringAttribute key="ro.amiq.dvt.launch.LAUNCH_PATTERNS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;patterns/&gt;"/>
+<stringAttribute key="ro.amiq.dvt.launch.LAUNCH_SESSION" value="same"/>
+<stringAttribute key="ro.amiq.dvt.launch.PROJECT_ATTR" value="uvm-1.2_ubus"/>
+<stringAttribute key="ro.amiq.dvt.launch.RUN_AS" value="command"/>
+<booleanAttribute key="ro.amiq.dvt.launch.SESSION_TERMINATE_ON_EXIT" value="true"/>
+<stringAttribute key="ro.amiq.dvt.launch.WORKING_DIRECTORY" value="${workspace_loc:/uvm-1.2_ubus/examples}"/>
+<booleanAttribute key="ro.amiq.dvt.launch.WORKING_SET_LINK_FILTER" value="false"/>
+<booleanAttribute key="ro.amiq.dvt.launch.XTERM_HOLD" value="false"/>
+<booleanAttribute key="ro.amiq.dvt.launch.XTERM_REDIRECT" value="false"/>
+</launchConfiguration>

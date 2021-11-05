@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<component-hierarchy version='1'>
+	<uvm-component name='uvm_test_top' type='test_2m_4s' sv-type='test_2m_4s'>
+		<uvm-component name='ubus_example_tb0' type='ubus_example_tb' sv-type='ubus_example_tb'>
+			<uvm-component name='scoreboard0' type='ubus_example_scoreboard' sv-type='ubus_example_scoreboard'>
+				<uvm-port name='item_collected_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,ubus_example_scoreboard)'/>
+			</uvm-component>
+			<uvm-component name='ubus0' type='ubus_env' sv-type='ubus_env'>
+				<vif name='vif' sv-type='ubus_if'/>
+				<uvm-component name='bus_monitor' type='ubus_bus_monitor' sv-type='ubus_bus_monitor'>
+					<vif name='vif' sv-type='ubus_if'/>
+					<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					<uvm-port name='state_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_status)'/>
+				</uvm-component>
+				<uvm-component name='masters[0]' type='ubus_master_agent' sv-type='ubus_master_agent'>
+					<uvm-component name='driver' type='ubus_master_driver' sv-type='ubus_master_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_master_monitor' sv-type='ubus_master_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='uvm_sequencer' sv-type='uvm_sequencer#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+				<uvm-component name='masters[1]' type='ubus_master_agent' sv-type='ubus_master_agent'>
+					<uvm-component name='driver' type='ubus_master_driver' sv-type='ubus_master_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_master_monitor' sv-type='ubus_master_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='uvm_sequencer' sv-type='uvm_sequencer#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+				<uvm-component name='slaves[0]' type='ubus_slave_agent' sv-type='ubus_slave_agent'>
+					<uvm-component name='driver' type='ubus_slave_driver' sv-type='ubus_slave_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_slave_monitor' sv-type='ubus_slave_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='addr_ph_imp' type='uvm_blocking_peek_imp' kind='implementation' sv-type='uvm_blocking_peek_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_slave_monitor)'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='ubus_slave_sequencer' sv-type='ubus_slave_sequencer'>
+						<uvm-port name='addr_ph_port' type='uvm_blocking_peek_port' kind='port' sv-type='uvm_blocking_peek_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+				<uvm-component name='slaves[1]' type='ubus_slave_agent' sv-type='ubus_slave_agent'>
+					<uvm-component name='driver' type='ubus_slave_driver' sv-type='ubus_slave_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_slave_monitor' sv-type='ubus_slave_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='addr_ph_imp' type='uvm_blocking_peek_imp' kind='implementation' sv-type='uvm_blocking_peek_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_slave_monitor)'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='ubus_slave_sequencer' sv-type='ubus_slave_sequencer'>
+						<uvm-port name='addr_ph_port' type='uvm_blocking_peek_port' kind='port' sv-type='uvm_blocking_peek_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+				<uvm-component name='slaves[2]' type='ubus_slave_agent' sv-type='ubus_slave_agent'>
+					<uvm-component name='driver' type='ubus_slave_driver' sv-type='ubus_slave_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_slave_monitor' sv-type='ubus_slave_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='addr_ph_imp' type='uvm_blocking_peek_imp' kind='implementation' sv-type='uvm_blocking_peek_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_slave_monitor)'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='ubus_slave_sequencer' sv-type='ubus_slave_sequencer'>
+						<uvm-port name='addr_ph_port' type='uvm_blocking_peek_port' kind='port' sv-type='uvm_blocking_peek_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+				<uvm-component name='slaves[3]' type='ubus_slave_agent' sv-type='ubus_slave_agent'>
+					<uvm-component name='driver' type='ubus_slave_driver' sv-type='ubus_slave_driver'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='rsp_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_port' type='uvm_seq_item_pull_port' kind='port' sv-type='uvm_seq_item_pull_port#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='monitor' type='ubus_slave_monitor' sv-type='ubus_slave_monitor'>
+						<vif name='vif' sv-type='ubus_if'/>
+						<uvm-port name='addr_ph_imp' type='uvm_blocking_peek_imp' kind='implementation' sv-type='uvm_blocking_peek_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_slave_monitor)'/>
+						<uvm-port name='item_collected_port' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+					</uvm-component>
+					<uvm-component name='sequencer' type='ubus_slave_sequencer' sv-type='ubus_slave_sequencer'>
+						<uvm-port name='addr_ph_port' type='uvm_blocking_peek_port' kind='port' sv-type='uvm_blocking_peek_port#(ubus_pkg::ubus_transfer)'/>
+						<uvm-component name='req_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_tlm_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+						<uvm-port name='rsp_export' type='uvm_analysis_export' kind='export' sv-type='uvm_analysis_export#(ubus_pkg::ubus_transfer)'/>
+						<uvm-port name='seq_item_export' type='uvm_seq_item_pull_imp' kind='implementation' sv-type='uvm_seq_item_pull_imp#(ubus_pkg::ubus_transfer,ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer#(ubus_pkg::ubus_transfer,REQ))'/>
+						<uvm-component name='sqr_rsp_analysis_fifo' type='uvm_tlm_fifo #(T)' sv-type='uvm_sequencer_analysis_fifo#(ubus_pkg::ubus_transfer)'>
+							<uvm-port name='analysis_export' type='uvm_analysis_imp' kind='implementation' sv-type='uvm_analysis_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_sequencer_analysis_fifo#(RSP))'/>
+							<uvm-port name='get_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='get_peek_export' type='uvm_get_peek_imp' kind='implementation' sv-type='uvm_get_peek_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+							<uvm-port name='put_ap' type='uvm_analysis_port' kind='port' sv-type='uvm_analysis_port#(ubus_pkg::ubus_transfer)'/>
+							<uvm-port name='put_export' type='uvm_put_imp' kind='implementation' sv-type='uvm_put_imp#(ubus_pkg::ubus_transfer,uvm_pkg::uvm_tlm_fifo_base#(T))'/>
+						</uvm-component>
+					</uvm-component>
+				</uvm-component>
+			</uvm-component>
+		</uvm-component>
+	</uvm-component>
+	<design>
+		<interface name='ubus_tb_top.vif' sv-type='ubus_if'/>
+	</design>
+	<connections>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.bus_monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[0].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[0].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.masters[0].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[0].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[0].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.masters[0].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[1].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[1].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.masters[1].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[1].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.masters[1].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.masters[1].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].monitor.item_collected_port' destination='uvm_test_top.ubus_example_tb0.scoreboard0.item_collected_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].sequencer.addr_ph_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].monitor.addr_ph_imp' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[0].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].monitor.item_collected_port' destination='uvm_test_top.ubus_example_tb0.scoreboard0.item_collected_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].sequencer.addr_ph_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].monitor.addr_ph_imp' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[1].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].monitor.item_collected_port' destination='uvm_test_top.ubus_example_tb0.scoreboard0.item_collected_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].sequencer.addr_ph_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].monitor.addr_ph_imp' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[2].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].driver.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].driver.seq_item_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].sequencer.seq_item_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].monitor.vif' destination='design.ubus_tb_top.vif'/>
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].monitor.item_collected_port' destination='uvm_test_top.ubus_example_tb0.scoreboard0.item_collected_export' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].sequencer.addr_ph_port' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].monitor.addr_ph_imp' />
+		<connection source='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].sequencer.rsp_export' destination='uvm_test_top.ubus_example_tb0.ubus0.slaves[3].sequencer.sqr_rsp_analysis_fifo.analysis_export' />
+	</connections>
+</component-hierarchy>
